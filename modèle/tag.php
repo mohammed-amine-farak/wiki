@@ -1,6 +1,6 @@
 <?php
 class tag{
-    private $id_tag
+    private $id_tag;
     private $nameTag;
     public function __construct($id_tag,$nameTag){
         $this->id_tag = $id_tag;
