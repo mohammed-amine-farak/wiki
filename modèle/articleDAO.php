@@ -19,6 +19,9 @@
         }
         return $article;
     }
+    public function add_artivle($titre,$contenu,$date_creation,$){
+
+    }
 
   }
 ?>
