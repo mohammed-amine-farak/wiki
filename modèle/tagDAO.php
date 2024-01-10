@@ -29,12 +29,43 @@ class tagDAO{
         $tag = new tag($tag_by_id["id_tag"],$tag_by_id["nom_tag"]);
         return $tag;
     }
+
+
+
     function update_tag($id,$tag_name){
       $update = "UPDATE tags SET  nom_tag ='$tag_name' WHERE id_tag = $id";
       $stmt  = $this->db->query($update);
       $stmt->execute();
       header('Location:adminelistTAG.php');
     }
+
+
+
+
+    function delete_tag($id){
+        $delete = "DELETE FROM tags WHERE id_tag = $id";
+        $stmt  = $this->db->query($delete);
+        $stmt->execute();
+        header('Location:adminelistTAG.php');
+        
+    }
+    
+
+
+    function add_tag($tag_name){
+        // Validate and sanitize input
+        $tag_name = filter_var($tag_name, FILTER_SANITIZE_STRING);
+    
+        // Use a prepared statement to insert the tag
+        $create_tag = "INSERT INTO tags (nom_tag) VALUES (:tag_name)";
+        $stmt = $this->db->prepare($create_tag);
+        $stmt->bindParam(':tag_name', $tag_name, PDO::PARAM_STR);
+        
+        // Execute the prepared statement
+        $stmt->execute();
+    }
+    
+    
     }
 
 ?>

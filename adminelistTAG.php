@@ -14,6 +14,7 @@
    include 'controller\controllerTag.php';
    $controllerTAG = new tagcontroller();
    $controllerTAG->get_tags();
+   $controllerTAG->deletetag();
    ?>
     
     </body>

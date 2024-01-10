@@ -24,8 +24,32 @@ class tagcontroller{
           $new_tag = $_GET['tag_name'];
           $tagDAO = new tagDAO();
           $tagDAO->update_tag($id,$new_tag);
+          include 'vue\updateTAG.php';
         }
-        include 'vue\updateTAG.php';
+        
+    }
+    function deletetag(){
+        if(isset($_GET['delete'])){
+         $delete_id = $_GET['delete'];
+         $tagDAO = new tagDAO();
+         $tagDAO->delete_tag($delete_id);
+         include 'vue\listtag.php';
+         echo '<script>
+                window.location.replace("adminelistTAG.php")
+                </script>
+                ';
+        }
+        
+    }
+
+    function add_tag(){
+        if(isset($_POST['submit'])){
+            $tag_names = $_POST['tag_name'];
+            $tagDAO = new tagDAO();
+             $tagDAO->add_tag($tag_names);
+             header('Location:adminelistTAG.php');
+        }
+        include 'vue\addTAgs.php';
     }
     
 }

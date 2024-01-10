@@ -46,7 +46,12 @@
                     <a href="updateTAGS.php?id=<?=$t->getId_tag()?>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
                 <td class="px-6 py-4">
-                         delete
+                    <form method = "GET">
+                    <button  name="delete" value="<?=$t->getId_tag()?>" class="inline-flex bg-white items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    update the bus
+                    </button>
+                    </form>
+                
                 </td>
             </tr>
               <?php  
