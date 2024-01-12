@@ -1,12 +1,12 @@
 <?php
 include 'modèle\tagDAO.php';
 class tagcontroller{
-    public function get_tags(){
+    function get_tags(){
         
         $tagDAO = new tagDAO();
         $tag = $tagDAO->get_tag();
         include 'vue\listtag.php';
-}
+      }
      function get_tag_by_id(){
           if(isset($_GET['id'])){
                 $id = $_GET['id'];

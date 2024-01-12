@@ -1,6 +1,6 @@
 <?php
-  include 'article.php';
-  include 'connexion.php';
+  require_once 'article.php';
+  require_once 'connexion.php';
   class articleDAO{
     private $db;
       
@@ -19,9 +19,25 @@
         }
         return $article;
     }
-    public function add_artivle($titre,$contenu,$date_creation,$){
 
+
+    public function add_article($titre,$contenu,$date_creation,$id_auteur,$id_category,$id_tags){
+      $add_article = "INSERT INTO wikis (`titre`, `contenu`, `date_creation`, `id_auteur`, `id_categorie`, `statu`) VALUES (:titre, :contenu, :date_creation, :id_auteur, :id_category, :statu)";
+      $stmt = $this->db->prepare($add_article);
+      $stmt->bindParam(':titre', $titre);
+      $stmt->bindParam(':contenu', $contenu);
+      $stmt->bindParam(':date_creation', $date_creation);
+      $stmt->bindParam(':id_auteur', $id_auteur);
+      $stmt->bindParam(':id_category', $id_category);
+      $stmt->bindValue(':statu', 'true');
+      $stmt->execute();
+      $idwiki = $this->db->lastInsertId();
+      foreach ($id_tags as $tag) {
+          $query = $this->db->prepare("INSERT INTO wiki_tags(id_wiki, id_tag) VALUES (:idWiki,:idTag)");
+          $query->bindParam(':idWiki', $idwiki);
+          $query->bindParam(':idTag', $tag);
+          $query->execute();
     }
-
+  }
   }
 ?>

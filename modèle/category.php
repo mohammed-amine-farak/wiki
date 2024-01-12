@@ -7,7 +7,7 @@ class categry{
 
 
     public function __construct($id_category,$category_name){
-        $this->id_category = $id_category
+        $this->id_category = $id_category;
          $this->category_name = $category_name;
     }
      /**

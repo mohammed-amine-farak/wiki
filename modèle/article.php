@@ -1,4 +1,6 @@
 <?php
+
+
 class article{
     private $id;
     private $title;
@@ -6,9 +8,10 @@ class article{
     private $date;
     private $category;
     private $user;
+    private $statu;
 
     
-    public function __construct($id,$title,$contenu,$date,$category,$tag,$user){
+    public function __construct($id,$title,$contenu,$date,$category,$tag,$user,$statu){
       $this->id = $id;
       $this->title = $title;
       $this->contenu = $contenu;
@@ -16,6 +19,7 @@ class article{
       $this->category = $category;
       $this->tag = $tag;
       $this->user = $user;
+      $this->statu = $statu;
     }
 
     /**
@@ -69,6 +73,14 @@ class article{
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Get the value of statu
+     */ 
+    public function getStatu()
+    {
+        return $this->statu;
     }
 }
 ?>

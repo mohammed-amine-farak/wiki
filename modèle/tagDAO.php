@@ -1,6 +1,6 @@
 <?php
-include 'modèle\tag.php';
-include 'connexion.php';
+require_once 'modèle\tag.php';
+require_once 'connexion.php';
 class tagDAO{
     private $db;
       
